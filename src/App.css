@@ -1,14 +1,5 @@
-.App {
-  /* text-align: center; */
-}
-
 .Meditationbody {
   background-color: #f2f4fa;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

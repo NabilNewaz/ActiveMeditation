@@ -1,7 +1,7 @@
 import React from 'react';
 import Headertext from '../Headertext/Headertext';
 import Meditationsteps from '../Meditationsteps/Meditationsteps';
-import './Meditationbody.css';
+import Questionaccordion from '../Questionaccordion/Questionaccordion';
 
 const Meditationbody = () => {
     return (
@@ -15,6 +15,7 @@ const Meditationbody = () => {
                 <Meditationsteps></Meditationsteps>
                 <Meditationsteps></Meditationsteps>
             </div>
+            <Questionaccordion></Questionaccordion>
         </div>
     );
 };

@@ -2,7 +2,6 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Avatar } from 'flowbite-react';
 import React from 'react';
-import './Userinfo.css';
 
 const Userinfo = () => {
     return (
@@ -51,11 +50,11 @@ const Userinfo = () => {
                 <h3 className='text-xl font-medium'>Exercise Details</h3>
                 <div className='flex justify-between bg-blue-100 px-5 py-3 rounded-md mt-3'>
                     <p><span className='font-bold'>Exercise time</span></p>
-                    <p><span className='text-gray-500'>200 seconds</span></p>
+                    <p><span id='exerciseTime' className='text-gray-500'>0 seconds</span></p>
                 </div>
                 <div className='flex justify-between bg-blue-100 px-5 py-3 rounded-md mt-3'>
                     <p><span className='font-bold'>Break time</span></p>
-                    <p><span className='text-gray-500'>15 seconds</span></p>
+                    <p><span id='breakTime' className='text-gray-500'>15 seconds</span></p>
                 </div>
             </div>
             <button

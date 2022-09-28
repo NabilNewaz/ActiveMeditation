@@ -1,6 +1,5 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './Headertext.css'
 import { faLungs } from '@fortawesome/free-solid-svg-icons';
 
 const Headertext = () => {
