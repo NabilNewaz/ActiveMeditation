@@ -20,7 +20,6 @@ const Userinfo = (props) => {
         event.currentTarget.classList.remove('bg-white');
         localStorage.setItem("breakTime", event.currentTarget.innerText.slice(0, -1) + ' seconds');
         setbreakTime(localStorage.getItem("breakTime"));
-        console.log(localStorage.getItem("breakTime").slice(0, -8))
     };
 
     const secondBtns = document.getElementsByClassName('secBtn');
