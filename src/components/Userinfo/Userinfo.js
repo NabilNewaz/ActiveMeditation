@@ -3,14 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Avatar } from 'flowbite-react';
 import { useState } from 'react';
 
-const Userinfo = () => {
+const Userinfo = (props) => {
     const [breakTime, setbreakTime] = useState('0 seconds');
     if (localStorage.getItem("breakTime") === null) {
         localStorage.setItem("breakTime", breakTime);
-    } else {
-
     }
-    const handleClick = event => {
+    const handleClick = (event) => {
         let allBtn = event.currentTarget.parentElement.children;
         for (const otherBtn of allBtn) {
             if (otherBtn.innerText !== event.currentTarget.innerText) {
@@ -22,7 +20,16 @@ const Userinfo = () => {
         event.currentTarget.classList.remove('bg-white');
         localStorage.setItem("breakTime", event.currentTarget.innerText.slice(0, -1) + ' seconds');
         setbreakTime(localStorage.getItem("breakTime"));
+        console.log(localStorage.getItem("breakTime").slice(0, -8))
     };
+
+    const secondBtns = document.getElementsByClassName('secBtn');
+    for (const secondBtn of secondBtns) {
+        if (parseInt(secondBtn.innerHTML.slice(0, -1)) === parseInt(localStorage.getItem("breakTime"))) {
+            secondBtn.classList.remove('bg-white')
+            secondBtn.classList.add('bg-blue-600', 'text-white')
+        }
+    }
     return (
         <div className='sticky top-8 m-8'>
             <div>
@@ -57,19 +64,19 @@ const Userinfo = () => {
             </div>
             <div className='mt-6'>
                 <h3 className='text-xl font-medium'>Add A Break</h3>
-                <div className='flex justify-between bg-blue-100 px-5 py-3 rounded-md mt-2'>
-                    <button className={'h-10 w-10 bg-white rounded-full'} onClick={handleClick}>10s</button>
-                    <button className={'h-10 w-10 bg-white rounded-full'} onClick={handleClick}>20s</button>
-                    <button className={'h-10 w-10 bg-white rounded-full'} onClick={handleClick}>30s</button>
-                    <button className={'h-10 w-10 bg-white rounded-full'} onClick={handleClick}>40s</button>
-                    <button className={'h-10 w-10 bg-white rounded-full'} onClick={handleClick}>50s</button>
+                <div id='secondsBtn' className='flex justify-between bg-blue-100 px-5 py-3 rounded-md mt-2'>
+                    <button className={'h-10 w-10 bg-white rounded-full secBtn'} onClick={handleClick}>10s</button>
+                    <button className={'h-10 w-10 bg-white rounded-full secBtn'} onClick={handleClick}>20s</button>
+                    <button className={'h-10 w-10 bg-white rounded-full secBtn'} onClick={handleClick}>30s</button>
+                    <button className={'h-10 w-10 bg-white rounded-full secBtn'} onClick={handleClick}>40s</button>
+                    <button className={'h-10 w-10 bg-white rounded-full secBtn'} onClick={handleClick}>50s</button>
                 </div>
             </div>
             <div className='mt-6'>
                 <h3 className='text-xl font-medium'>Exercise Details</h3>
                 <div className='flex justify-between bg-blue-100 px-5 py-3 rounded-md mt-3'>
                     <p><span className='font-bold'>Exercise time</span></p>
-                    <p><span id='exerciseTime' className='text-gray-500'>0 seconds</span></p>
+                    <p><span className='text-gray-500'><span>{props.exerciseTime}</span> seconds</span></p>
                 </div>
                 <div className='flex justify-between bg-blue-100 px-5 py-3 rounded-md mt-3'>
                     <p><span className='font-bold'>Break time</span></p>
