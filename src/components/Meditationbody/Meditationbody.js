@@ -4,7 +4,7 @@ import Meditationsteps from '../Meditationsteps/Meditationsteps';
 import Questionaccordion from '../Questionaccordion/Questionaccordion';
 import Userinfo from '../Userinfo/Userinfo';
 
-const Meditationbody = () => {
+const Meditationbody = (props) => {
     const [steps, setSteps] = useState([])
     const [exerciseTime, setExerciseTime] = useState(0)
     useEffect(() => {
@@ -15,28 +15,29 @@ const Meditationbody = () => {
 
     const handelExerciseTime = (step) => {
         setExerciseTime(exerciseTime + parseInt(step.time))
-        console.log(exerciseTime);
     }
 
     return (
-        <div className="lg:grid lg:grid-cols-5">
-            <div className='lg:col-span-4 Meditationbody pt-1'>
-                <div className='lg:mx-32 mx-6'>
-                    <Headertext></Headertext>
-                    <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-6 grid-cols-1 h-ful mb-16'>
-                        {
-                            steps.map(step => <Meditationsteps
-                                key={step.id}
-                                step={step}
-                                handelExerciseTime={handelExerciseTime}
-                            ></Meditationsteps>)
-                        }
+        <div>
+            <div className="lg:grid lg:grid-cols-5">
+                <div className='lg:col-span-4 Meditationbody pt-1'>
+                    <div className='lg:mx-32 mx-6'>
+                        <Headertext></Headertext>
+                        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-6 grid-cols-1 h-ful mb-16'>
+                            {
+                                steps.map(step => <Meditationsteps
+                                    key={step.id}
+                                    step={step}
+                                    handelExerciseTime={handelExerciseTime}
+                                ></Meditationsteps>)
+                            }
+                        </div>
+                        <Questionaccordion></Questionaccordion>
                     </div>
-                    <Questionaccordion></Questionaccordion>
                 </div>
-            </div>
-            <div>
-                <Userinfo exerciseTime={exerciseTime}></Userinfo>
+                <div>
+                    <Userinfo exerciseTime={exerciseTime} notify={props.notify}></Userinfo>
+                </div>
             </div>
         </div>
     );

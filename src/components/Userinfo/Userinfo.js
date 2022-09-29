@@ -84,9 +84,10 @@ const Userinfo = (props) => {
                 </div>
             </div>
             <button
+                onClick={props.notify}
                 type="button"
                 className="mt-5 inline-flex w-full justify-center rounded-lg bg-blue-600 px-5 py-4 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900">
-                Activity Completed
+                Meditation Completed
             </button>
         </div>
     );
