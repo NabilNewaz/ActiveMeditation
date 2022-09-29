@@ -1,20 +1,21 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
 
-const Meditationsteps = () => {
+const Meditationsteps = (props) => {
+    const { title, body, img, forAge, time } = props.step;
     return (
         <div>
             <div>
-                <Card imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg">
+                <Card imgSrc={img}>
                     <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Noteworthy technology acquisitions 2021
+                        {title}
                     </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                    <p className="font-normal text-gray-700 dark:text-gray-400 text-justify">
+                        {body.slice(0, 180)}...<span className='font-bold'>Read More</span>
                     </p>
                     <div>
-                        <p>For Age : <span className='font-bold'>20-25</span></p>
-                        <p>Time required : <span className='font-bold'>30s</span></p>
+                        <p>For Age : <span className='font-bold'>{forAge}</span></p>
+                        <p>Time required : <span className='font-bold'>{time}s</span></p>
                     </div>
                     <button
                         type="button"
