@@ -11,7 +11,7 @@ const Meditationsteps = (props) => {
                         {title}
                     </h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400 text-justify">
-                        {body.slice(0, 180)}...<span className='font-bold'>Read More</span>
+                        {body.slice(0, 170)}...<span className='font-bold'>Read More</span>
                     </p>
                     <div>
                         <p>For Age : <span className='font-bold'>{forAge}</span></p>

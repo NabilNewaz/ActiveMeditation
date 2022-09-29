@@ -12,9 +12,9 @@ const Meditationbody = () => {
     }, [])
 
     return (
-        <div className='mx-44'>
+        <div className='lg:mx-32 mx-6'>
             <Headertext></Headertext>
-            <div className='grid grid-cols-3 gap-6 h-ful mb-16'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-6 grid-cols-1 h-ful mb-16'>
                 {
                     steps.map(step => <Meditationsteps
                         key={step.id}

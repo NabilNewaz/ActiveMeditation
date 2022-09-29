@@ -3,7 +3,7 @@ import React from 'react';
 
 const Questionaccordion = () => {
     return (
-        <div className='mb-16'>
+        <div className='pb-16'>
             <div className='text-xl font-bold text-gray-700 my-5'>
                 <div>
                     <h1>Answer Of Some Of Questions</h1>
